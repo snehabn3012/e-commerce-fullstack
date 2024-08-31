@@ -45,9 +45,10 @@ function AddProduct() {
     } = values;
 
     const loadCategories = () => {
-        getCatergories({ token }).then((data) => {
-            setCategories(data)
-        })
+        getCatergories({ token })
+            .then((data) => {
+                setCategories(data)
+            })
     }
 
     useEffect(() => {

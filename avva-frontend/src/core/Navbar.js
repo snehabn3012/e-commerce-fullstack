@@ -60,6 +60,9 @@ function Navbar() {
                         <li className="btn">
                             <Link to="/"> Home</Link>
                         </li>
+                        <li className="btn">
+                            <Link to="/shop">Shop</Link>
+                        </li>
                         {
                             !isAuthenticated && <li className="btn">
                                 <Link to="/signin"> SignIn</Link>

@@ -12,7 +12,7 @@ router.post('/category/create/:userId', requireSignin, isAdmin, isAuth, create);
 router.put('/category/:categoryId/:userId', requireSignin, isAdmin, isAuth, updateCategory);
 router.get('/category/:categoryId/:userId', requireSignin, isAdmin, isAuth, read);
 router.delete('/category/:categoryId/:userId', requireSignin, remove);
-router.get('/category/all', requireSignin, listAll);
+router.get('/category/all', listAll);
 
 
 

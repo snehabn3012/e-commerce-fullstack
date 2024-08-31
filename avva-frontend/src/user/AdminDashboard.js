@@ -4,7 +4,7 @@ import { isAuthenticated } from "../auth";
 import { Link } from 'react-router-dom';
 
 function AdminDashboard() {
-    const { user: { name, email, role } } = isAuthenticated();
+    const { user: { _id, name, email, role } } = isAuthenticated();
 
     const adminLinks = () => {
         return (
@@ -16,6 +16,16 @@ function AdminDashboard() {
                     </li>
                     <li>
                         <Link to="/create/product">Create product</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/orders">All orders</Link>
+                    </li>
+
+                    <li>
+                        <Link to={`/profile/${_id}`}>Update Profile</Link>
+                    </li>
+                    <li>
+                        <Link to={`/purchase-history`}>Purchase History</Link>
                     </li>
                 </ul>
 

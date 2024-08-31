@@ -26,7 +26,7 @@ exports.productById = async (req, res, next, id) => {
 exports.read = (req, res) => {
     // Send image seperately bcz images are huge
     req.product.photo = undefined;
-    return res.json(req.product);
+    res.json(req.product);
 }
 
 exports.create = (req, res) => {
@@ -309,4 +309,59 @@ exports.photo = (req, res, next) => {
         return res.send(req.product.photo.data)
     }
     next();
+}
+
+exports.listSearch = (req, res) => {
+    // create query object to hold search value and category value
+    const query = {};
+    // assign search value to query.name
+    if (req.query.search) {
+        query.name = { $regex: req.query.search, $options: 'i' }
+        // asseign category value to query.category 
+        if (req.query.category && req.query.category !== 'All') {
+            query.category = req.query.category;
+        }
+        // find the prodducts based on query object with 2 properties
+        // Search and category
+        Product.find(query)
+            .select("-photo")
+            .then((products) => {
+                res.json(products)
+            })
+            .catch((err) => {
+                return res.status(400).json({
+                    error: err
+                })
+            })
+    }
+
+}
+
+exports.decreaseQuantity = (req, res, next) => {
+    let bulkOps = req.body.order.products.map((item) => {
+        return {
+            updateOne: {
+                filter: {
+                    _id: item._id
+                },
+                update: {
+                    $inc:
+                    {
+                        quantity: -item.count,
+                        sold: +item.count
+                    }
+                }
+            }
+        }
+    })
+
+    Product.bulkWrite(bulkOps, {})
+        .then((data) => {
+            next();
+        })
+        .catch((err) => {
+            return res.status(400).json({
+                error: err
+            })
+        })
 }
