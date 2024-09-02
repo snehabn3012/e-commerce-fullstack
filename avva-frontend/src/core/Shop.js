@@ -3,7 +3,7 @@ import { useUserData } from "./../hooks/useAuth";
 
 import Layout from "./Layout";
 import ProductCard from "../ui/ProductCard";
-import { getCatergories } from "../api/admin";
+import { getCategories } from "../api/admin";
 import { Button, Checkbox, Radio, RadioGroup } from "@chakra-ui/react";
 import { prices } from '../utils/fixedPrices';
 import { getFilteredProduct } from '../api/product';
@@ -85,7 +85,7 @@ function Shop() {
 
 
     const loadCategories = useCallback(() => {
-        getCatergories({ token })
+        getCategories({ token })
             .then((data) => {
                 if (data.error) {
                     setError(data.error);

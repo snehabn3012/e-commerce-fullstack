@@ -143,7 +143,7 @@ exports.update = async (req, res) => {
             product = _.extend(product, _fields);
 
             if (files.photo) {
-                console.log("FILES PHOTO: ", files.photo);
+                console.log("FILES PHOTO: ", files.photo[0]);
                 if (files.photo.size > 1000000) { // 1kb = 1000, 1mb = 1000000
                     return res.status(400).json({
                         error: "Image should be less than 1mb in size",
@@ -151,8 +151,8 @@ exports.update = async (req, res) => {
                 }
                 // Read the file and save it to the database
                 try {
-                    createdProduct.photo.data = fs.readFileSync(files.photo.filepath); // Correct property is 'filepath'
-                    createdProduct.photo.contentType = files.photo.mimetype; // Correct property is 'mimetype'
+                    createdProduct.photo.data = fs.readFileSync(files.photo[0].filepath); // Correct property is 'filepath'
+                    createdProduct.photo.contentType = files.photo[0].mimetype; // Correct property is 'mimetype'
                 } catch (error) {
                     return res.status(500).json({
                         error: "Failed to read the file.",

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Input, Select } from "@chakra-ui/react";
-import { getCatergories } from "../api/admin";
+import { getCategories } from "../api/admin";
 import { listProduct } from "../api/product";
 import ProductCard from "../ui/ProductCard";
 
@@ -16,7 +16,7 @@ function Search() {
     const { categories, category, search, results, searched } = data;
 
     const loadCategories = () => {
-        getCatergories().then(_data => {
+        getCategories().then(_data => {
             if (_data?.error) {
                 //
             } else {
@@ -57,13 +57,13 @@ function Search() {
     const searchForm = () => {
         return (
             <form onSubmit={searchSubmit} onClick={searchSubmit}>
-                <div>
+                <div className="flex gap-5 w-50">
                     <Input
                         type="search"
                         onChange={handleChange('search')}
                         placeholder="Search Products"
                     />
-                    <Select onChange={handleChange('category')}>
+                    {/* <Select onChange={handleChange('category')}>
                         <option value="all">All Categories</option>
                         {
                             categories?.map((category, index) => (
@@ -75,7 +75,7 @@ function Search() {
                                 </option>
                             ))
                         }
-                    </Select>
+                    </Select> */}
                     <Button>Search</Button>
                 </div>
             </form>
@@ -98,11 +98,9 @@ function Search() {
     }
 
     return (
-        <div>
+        <div className="flex-row">
             {searchForm()}
-            <h2>Searched Products</h2>
             {searchMessage(searched, results)}
-
             {results?.map((product) => (
                 <div key={product._id}>
                     <ProductCard product={product} />

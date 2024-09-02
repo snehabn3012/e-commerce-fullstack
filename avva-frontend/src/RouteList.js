@@ -19,6 +19,8 @@ import PurchaseHistory from "./user/PurchaseHistory";
 import AddCategory from "./admin/AddCategory";
 import AddProduct from "./admin/AddProduct";
 import Orders from "./admin/Orders";
+import ManageProducts from "./admin/ManageProducts";
+import UpdateProduct from "./admin/UpdateProduct";
 
 const RouteList = () => {
     return (
@@ -35,6 +37,8 @@ const RouteList = () => {
                     <Route path='/create/category' element={<AddCategory />} />
                     <Route path='/create/product' element={<AddProduct />} />
                     <Route path='/admin/orders' element={<Orders />} />
+                    <Route path='/admin/products' element={<ManageProducts />} />
+                    <Route path='/admin/product/update/:productId' element={<UpdateProduct />} />
                 </Route>
 
                 <Route path="/" element={<Home />} />

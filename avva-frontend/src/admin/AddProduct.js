@@ -4,7 +4,7 @@ import { Button, Input, Select, Textarea } from '@chakra-ui/react'
 
 import { useUserData } from "./../hooks/useAuth";
 import Layout from "../core/Layout";
-import { createProduct, getCatergories } from '../api/admin';
+import { createProduct, getCategories } from '../api/admin';
 
 function AddProduct() {
     const { user, token } = useUserData();
@@ -45,7 +45,7 @@ function AddProduct() {
     } = values;
 
     const loadCategories = () => {
-        getCatergories({ token })
+        getCategories({ token })
             .then((data) => {
                 setCategories(data)
             })

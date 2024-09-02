@@ -27,6 +27,9 @@ function AdminDashboard() {
                     <li>
                         <Link to={`/purchase-history`}>Purchase History</Link>
                     </li>
+                    <li>
+                        <Link to={`/admin/products/`}>Manage Products</Link>
+                    </li>
                 </ul>
 
             </div>

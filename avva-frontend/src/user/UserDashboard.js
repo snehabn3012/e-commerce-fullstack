@@ -12,7 +12,7 @@ function Dashboard() {
                 <h4>User links</h4>
                 <ul>
                     <li>
-                        <Link to="/cart">My Cart</Link>
+                        <Link to="/cart">Cart</Link>
                     </li>
                     {/* <li>
                         <Link to="/profile/update">Update Profile</Link>

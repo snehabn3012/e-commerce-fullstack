@@ -4,6 +4,8 @@ import { getProducts } from '../api/product';
 import Layout from "./Layout";
 import ProductCard from "../ui/ProductCard";
 import Search from './Search';
+import Banner from './Banner';
+import NewArrivals from './NewArrival';
 
 function Home() {
     const [productsBySell, setProductsBySell] = useState([]);
@@ -39,8 +41,9 @@ function Home() {
             title="Home Page"
             description="E commerce"
         >
-
-            <Search />
+            {/* <Search /> */}
+            <Banner />
+            <NewArrivals products={productsBySell} />
             <h1>New arrivals</h1>
             <div className="flex gap-2">
                 {productsBySell?.map((product, index) => (
