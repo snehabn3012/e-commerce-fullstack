@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { addItem, removeItem, updateItem } from '../utils/cartHelpers';
 import ProductCardImage from './ProductCardImage';
 import { Input } from '@chakra-ui/react';
+import "./ProductCard.css";
 
 const ProductCard = ({ product, showAddToCartButton = true,
     showRemoveProductButton = false, cartUpdate = false }) => {
@@ -37,36 +38,52 @@ const ProductCard = ({ product, showAddToCartButton = true,
 
 
     return (
-        <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-            <Link to={`/product/${product._id} `}>
-                <ProductCardImage product={product} url="product" />
-                <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">{product.name}</div>
-                    <p className="text-gray-700 text-base">
-                        {product.description?.substring(0, 100) || product.description}
-                    </p>
-                </div>
-            </Link>
-            <div className="px-6 pt-4 pb-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    ${product.price}
-                </span>
-                {showAddToCartButton && <button onClick={addToCart} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Add to Cart
-                </button>
-                }
-                {cartUpdate && (
-                    <div>
-                        <Input type='number' value={count} onChange={handleChange(product._id)} />
-                    </div>
-                )}
-                {showRemoveProductButton && <button onClick={removeFromCart(product._id)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Remove Item
-                </button>
-                }
-                {shouldRedirect(redirect)}
-            </div>
-        </div>
+        <div className="product-card">
+  <Link to={`/product/${product._id}`}>
+    <ProductCardImage product={product} url="product"/>
+
+    <div className="product-card-body">
+      <div className="product-title">{product.name}</div>
+
+      <p className="product-description">
+        {product.description?.substring(0, 100) || product.description}
+      </p>
+    </div>
+  </Link>
+
+  <div className="product-card-footer">
+    <span className="product-price">
+      ${product.price}
+    </span>
+
+    {showAddToCartButton && (
+      <button onClick={addToCart} className="btn-primary">
+        Add to Cart
+      </button>
+    )}
+
+    {cartUpdate && (
+      <div className="cart-update">
+        <Input
+          type="number"
+          value={count}
+          onChange={handleChange(product._id)}
+        />
+      </div>
+    )}
+
+    {showRemoveProductButton && (
+      <button
+        onClick={() => removeFromCart(product._id)}
+        className="btn-primary"
+      >
+        Remove Item
+      </button>
+    )}
+
+    {shouldRedirect(redirect)}
+  </div>
+</div>
     );
 };
 

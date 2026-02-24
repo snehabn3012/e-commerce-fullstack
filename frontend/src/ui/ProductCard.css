@@ -1,0 +1,70 @@
+/* Card container */
+.product-card {
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Body */
+.product-card-body {
+  padding: 20px;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  font-size: 15px;
+  color: #4b5563; /* similar to text-gray-700 */
+}
+
+/* Footer */
+.product-card-footer {
+  padding: 20px;
+  padding-top: 10px;
+}
+
+/* Price tag */
+.product-price {
+  display: inline-block;
+  background: #e5e7eb; /* gray-200 */
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
+
+/* Cart update wrapper */
+.cart-update {
+  margin: 10px 0;
+}

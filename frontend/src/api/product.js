@@ -2,8 +2,8 @@ import { API } from '../utils/config';
 import queryString from 'query-string';
 
 export const getProducts = (sortBy = "createdAt") => {
-    // return fetch(`${API}/products?sortBy=${sortBy}&order=desc`, {
-    return fetch(`${API}/products`, {
+    return fetch(`${API}/products?sortBy=${sortBy}&order=desc`, {
+    // return fetch(`${API}/products`, {
         method: 'GET',
     }).then((response) => {
         return response.json();

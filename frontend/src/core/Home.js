@@ -5,7 +5,7 @@ import Layout from "./Layout";
 import ProductCard from "../ui/ProductCard";
 import Search from './Search';
 import Banner from './Banner';
-import NewArrivals from './NewArrival';
+import ProductList from './ProductList';
 
 function Home() {
     const [productsBySell, setProductsBySell] = useState([]);
@@ -43,24 +43,8 @@ function Home() {
         >
             {/* <Search /> */}
             <Banner />
-            <NewArrivals products={productsBySell} />
-            <h1>New arrivals</h1>
-            <div className="flex gap-2">
-                {productsBySell?.map((product, index) => (
-                    <div key={`sellp_${index}`} className="flex justify-center bg-gray-100 w-50">
-                        <ProductCard product={product} />
-                    </div>
-                ))}
-
-            </div>
-            <h1>Best sellers</h1>
-            <div>
-                {productsByArrival?.map((products, index) => (
-                    <div key={`sellA_${index}`} className="border-solid border-y-cyan-950">
-                        {products.name}
-                    </div>
-                ))}
-            </div>
+            {productsByArrival.length > 0 && <ProductList products={productsByArrival} header="New Arrivals" />}
+            <ProductList products={productsBySell} header="Best sellers" />
         </Layout>
     )
 }

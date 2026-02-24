@@ -20,10 +20,10 @@ export const useIsAuthenticated = () => {
 
 export const useIsAdmin = () => {
     const { user } = useUserData();
-    return user.role === 1;
+    return user?.role === 1;
 }
 
 export const useIsRegisteredUser = () => {
     const { user } = useUserData();
-    return user.role === 0;
+    return user?.role === 0;
 }

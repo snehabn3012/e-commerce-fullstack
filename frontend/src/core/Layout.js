@@ -1,7 +1,5 @@
 import React from "react";
 import Navbar from "./Navbar";
-import Navbar1 from "./Navbar1";
-
 
 function Layout({ className, children }) {
     return (

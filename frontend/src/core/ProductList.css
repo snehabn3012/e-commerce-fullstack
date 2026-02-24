@@ -1,0 +1,47 @@
+/* Section styling */
+.product-section {
+  padding: 60px 0;
+  margin: 40px 0;
+  background-color: #f3f4f6; /* similar to bg-gray-100 */
+}
+
+/* Container */
+.product-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-container {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .product-container {
+    padding: 0 32px;
+  }
+}

@@ -1,0 +1,14 @@
+.product-image-wrapper {
+  margin-bottom: 15px; /* replaces mb-3 */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 230px;
+    height: 160px;
+    object-fit: cover;
+  display: block;
+}

@@ -5,6 +5,8 @@ Designed with a modular architecture, secure authentication, and optimized front
 
 🔗 **Live Demo:** ''  
 🔗 **API Base URL:** ''  
+Home page - /
+
 
 ---
 
