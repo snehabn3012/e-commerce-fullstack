@@ -2,7 +2,7 @@ import { API } from '../utils/config';
 import { isAuthenticated } from "../auth";
 
 const authData = isAuthenticated();
-const userId = authData?.user._id;
+const userId = authData?.user?._id;
 const token = authData?.token;
 
 const headers = {

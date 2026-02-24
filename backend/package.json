@@ -27,8 +27,11 @@
     "mongoose": "^8.5.3",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.4",
+   
     "razorpay": "^2.9.4",
     "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+     "nodemon": "^3.1.4"
   }
 }
